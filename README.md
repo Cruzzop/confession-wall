@@ -2,6 +2,7 @@
 # 🧱 Confession Wall
 
 A simple full-stack Node.js project where anyone can anonymously share their thoughts or secrets.
+Website - https://cruzzop.github.io/confession-wall/
 
 ## ✨ Features
 
