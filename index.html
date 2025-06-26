@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>✨ Confession Wall ✨</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>✨ Confession Wall ✨</h2>
+  <p class="subtitle">A safe space to share your secrets anonymously. Sometimes we all need to let our thoughts breathe.</p>
+
+  <div class="container">
+    <h3>💬 Share Your Secret</h3>
+    <textarea id="confessionInput" rows="4" maxlength="500" placeholder="What's weighing on your heart? Share it here, completely anonymous..."></textarea>
+    <button onclick="sendConfession()">📨 Share Confession</button>
+
+    <ul id="confessionList"></ul>
+  </div>
+
+  <script>
+    // Fetch and display messages
+    async function loadConfessions() {
+      try {
+        const res = await fetch('http://localhost:3000/messages');
+        const data = await res.json();
+
+        const list = document.getElementById('confessionList');
+        list.innerHTML = '';
+
+        data.forEach(msg => {
+          const li = document.createElement('li');
+          li.textContent = msg.text;
+          list.appendChild(li);
+        });
+      } catch (err) {
+        console.error('Error fetching confessions:', err);
+      }
+    }
+
+    // Send a new confession
+    async function sendConfession() {
+      const input = document.getElementById('confessionInput');
+      const text = input.value.trim();
+
+      if (!text) {
+        alert('Please write something!');
+        return;
+      }
+
+      try {
+        await fetch('http://localhost:3000/messages', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ text })
+        });
+
+        input.value = '';
+        loadConfessions();
+      } catch (err) {
+        console.error('Error sending confession:', err);
+        alert('Something went wrong!');
+      }
+    }
+
+    // Load when page opens
+    loadConfessions();
+  </script>
+</body>
+</html>

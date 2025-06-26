@@ -1,0 +1,85 @@
+/* Reset and base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #6e32ec, #1d4ed8);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title section */
+h2 {
+  font-size: 2.5rem;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  color: #ffc0f0;
+}
+
+p.subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #e2e8f0;
+}
+
+/* Card */
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+/* Form */
+textarea {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  resize: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+textarea::placeholder {
+  color: #cbd5e1;
+}
+
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  background: linear-gradient(to right, #d946ef, #7c3aed);
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Message list */
+#confessionList {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+#confessionList li {
+  background: rgba(255, 255, 255, 0.07);
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  color: #f8fafc;
+  font-size: 1rem;
+}
