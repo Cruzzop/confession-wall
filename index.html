@@ -35,7 +35,7 @@
   <script>
     async function loadConfessions() {
       try {
-        const res = await fetch('/messages'); // 👈 Use full URL if deployed (like https://your-render-url/messages)
+        const res = await fetch('https://confession-wall-es92.onrender.com/'); // 👈 Use full URL if deployed (like https://your-render-url/messages)
         const data = await res.json();
 
         console.log("Fetched confessions:", data); // 🐞 DEBUG: check console output
