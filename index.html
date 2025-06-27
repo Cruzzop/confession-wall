@@ -3,27 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- <<<<<<< HEAD -->
   <title>✨ Confession Wall ✨</title>
 <!--   <link rel="stylesheet" href="style.css"> -->
+<!-- ======= -->
+  <title>✨ Confession Wall</title>
+<!-- >>>>>>> 6b5a19a (�️ Update frontend UI and styling) -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h2>✨ Confession Wall ✨</h2>
-  <p class="subtitle">A safe space to share your secrets anonymously. Sometimes we all need to let our thoughts breathe.</p>
+  <p>A safe space to share your secrets anonymously. Sometimes we all need to let our thoughts breathe.</p>
 
-  <div class="container">
-    <h3>💬 Share Your Secret</h3>
-    <textarea id="confessionInput" rows="4" maxlength="500" placeholder="What's weighing on your heart? Share it here, completely anonymous..."></textarea>
-    <button onclick="sendConfession()">📨 Share Confession</button>
+  <!-- Confession Cartoon Window Box -->
+  <div class="confession-window">
+    <div class="window-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot purple"></span>
+    </div>
 
-    <ul id="confessionList"></ul>
+    <div class="confession-content">
+      <h3>💬 Share Your Secret</h3>
+      <textarea id="confessionInput" rows="4" placeholder="What's weighing on your heart? Share it here, completely anonymous..."></textarea>
+      <button onclick="sendConfession()">🚀 Share Confession</button>
+      <ul id="confessionList"></ul>
+    </div>
   </div>
 
+  <!-- Optional sparkles -->
+  <div class="sparkles">✨✨✨</div>
+
+  <!-- JavaScript -->
   <script>
-    // Fetch and display messages
     async function loadConfessions() {
       try {
-        const res = await fetch('https://confession-wall-es92.onrender.com/messages');
+        const res = await fetch('/messages');
         const data = await res.json();
 
         const list = document.getElementById('confessionList');
@@ -35,11 +50,10 @@
           list.appendChild(li);
         });
       } catch (err) {
-        console.error('Error fetching confessions:', err);
+        console.error('Error loading confessions:', err);
       }
     }
 
-    // Send a new confession
     async function sendConfession() {
       const input = document.getElementById('confessionInput');
       const text = input.value.trim();
@@ -50,7 +64,7 @@
       }
 
       try {
-        await fetch('https://confession-wall-es92.onrender.com/messages', {
+        await fetch('/messages', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text })
@@ -59,12 +73,11 @@
         input.value = '';
         loadConfessions();
       } catch (err) {
-        console.error('Error sending confession:', err);
-        alert('Something went wrong!');
+        alert('Something went wrong. Try again!');
       }
     }
 
-    // Load when page opens
+    // Load confessions on page load
     loadConfessions();
   </script>
 </body>

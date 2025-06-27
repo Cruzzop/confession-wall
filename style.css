@@ -1,3 +1,4 @@
+/* <<<<<<< HEAD */
 body {
   margin: 0;
   padding: 20px;
@@ -22,9 +23,142 @@ h3 {
   margin-bottom: 10px;
 }
 
+/* ======= */
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #dbe6f6, #f5f7fa); /* Light & calm */
+  color: #1e1e1e;
+  padding: 40px 20px;
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+}
+
+/* Heading */
+h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+
+  /* Gradient text */
+  background-image: linear-gradient(to right, #ffb6f9, #6f86d6);
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  /* Fallback for older browsers */
+  display: inline-block;
+}
+
+
+p {
+  font-size: 16px;
+  margin-bottom: 40px;
+  opacity: 0.9;
+}
+
+/* Cartoon window box */
+.confession-window {
+  max-width: 520px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 2px solid #8a4dff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background: #8ab6ff;
+  position: relative;
+}
+
+/* Window top bar */
+.window-bar {
+  background: #ffcba4;
+  padding: 10px 14px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 2px solid #8a4dff;
+}
+
+/* Dots (window buttons) */
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red {
+  background: #ff5e57;
+}
+.yellow {
+  background: #f5cd79;
+}
+.purple {
+  background: #a29bfe;
+}
+
+/* Content area */
+.confession-content {
+  padding: 20px;
+  background-color: #dceeff;
+}
+
+/* Section title */
+.confession-content h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: #1f1f1f;
+}
+
+/* Textarea */
+.confession-content textarea {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 16px;
+  background: white;
+  color: #333;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Button */
+.confession-content button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.confession-content button:hover {
+  transform: scale(1.02);
+  opacity: 0.9;
+}
+
+/* Confession List */
+/* >>>>>>> 6b5a19a (�️ Update frontend UI and styling) */
 #confessionList {
+  margin-top: 25px;
   list-style: none;
   padding: 0;
+/* <<<<<<< HEAD */
   max-width: 600px;
   margin: 0 auto 40px auto;
 }
@@ -99,5 +233,43 @@ button:hover {
   button {
     font-size: 15px;
     padding: 10px 20px;
+/* ======= */
+}
+
+#confessionList li {
+  background: #ffffffcc;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 8px;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  word-wrap: break-word;
+}
+
+/* Sparkles */
+.sparkles {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  font-size: 24px;
+  transform: rotate(15deg);
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 28px;
   }
+
+  .confession-window {
+    max-width: 100%;
+  }
+
+  .confession-content {
+    padding: 16px;
+/* >>>>>>> 6b5a19a (�️ Update frontend UI and styling) */
+  }
+}
 }
