@@ -9,24 +9,23 @@ const DATA_FILE = './data.json';
 let messages = [];
 
 // Middleware
-app.use(cors());         // Allow requests from frontend
-app.use(express.json()); // Parse JSON body
+app.use(cors());
+app.use(express.json());
 
-// Load existing message(s) from file
+// Load existing confessions
 try {
   const data = fs.readFileSync(DATA_FILE, 'utf-8');
   messages = JSON.parse(data);
-} catch (error) {
+} catch {
   messages = [];
-  console.error('Error loading data.json:', error.message);
 }
 
-// Get current message(s)
+// GET all confessions
 app.get('/messages', (req, res) => {
   res.json(messages);
 });
 
-// Add a new confession (and clear all previous)
+// POST a new confession
 app.post('/messages', (req, res) => {
   const text = req.body.text;
 
@@ -39,16 +38,12 @@ app.post('/messages', (req, res) => {
     text: text.trim()
   };
 
-  // Overwrite all previous messages
-  // messages = [newMsg];
-  messages.push(newMsg);
-
+  messages.push(newMsg); // ✅ now stores all confessions
   fs.writeFileSync(DATA_FILE, JSON.stringify(messages, null, 2));
 
   res.status(201).json(newMsg);
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`✅ Server running at http://localhost:${PORT}`);
 });
