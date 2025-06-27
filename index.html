@@ -3,12 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<!-- <<<<<<< HEAD -->
   <title>✨ Confession Wall ✨</title>
-<!--   <link rel="stylesheet" href="style.css"> -->
-<!-- ======= -->
-  <title>✨ Confession Wall</title>
-<!-- >>>>>>> 6b5a19a (�️ Update frontend UI and styling) -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -27,6 +22,8 @@
       <h3>💬 Share Your Secret</h3>
       <textarea id="confessionInput" rows="4" placeholder="What's weighing on your heart? Share it here, completely anonymous..."></textarea>
       <button onclick="sendConfession()">🚀 Share Confession</button>
+
+      <!-- 🔽 Confession list shown here -->
       <ul id="confessionList"></ul>
     </div>
   </div>
@@ -38,8 +35,10 @@
   <script>
     async function loadConfessions() {
       try {
-        const res = await fetch('/messages');
+        const res = await fetch('/messages'); // 👈 Use full URL if deployed (like https://your-render-url/messages)
         const data = await res.json();
+
+        console.log("Fetched confessions:", data); // 🐞 DEBUG: check console output
 
         const list = document.getElementById('confessionList');
         list.innerHTML = '';
@@ -71,13 +70,14 @@
         });
 
         input.value = '';
-        loadConfessions();
+        loadConfessions(); // refresh list
       } catch (err) {
         alert('Something went wrong. Try again!');
+        console.error(err);
       }
     }
 
-    // Load confessions on page load
+    // Load confessions on page open
     loadConfessions();
   </script>
 </body>

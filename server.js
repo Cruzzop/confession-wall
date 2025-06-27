@@ -40,7 +40,9 @@ app.post('/messages', (req, res) => {
   };
 
   // Overwrite all previous messages
-  messages = [newMsg];
+  // messages = [newMsg];
+  messages.push(newMsg);
+
   fs.writeFileSync(DATA_FILE, JSON.stringify(messages, null, 2));
 
   res.status(201).json(newMsg);
