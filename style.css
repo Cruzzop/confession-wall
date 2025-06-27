@@ -1,40 +1,40 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #f2f4f8;
-  color: #222;
   padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+  color: #222;
   box-sizing: border-box;
 }
 
 h2 {
   text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
   color: #2c3e50;
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
 h3 {
+  text-align: center;
+  font-size: 22px;
+  color: #2d3436;
   margin-top: 40px;
   margin-bottom: 10px;
-  font-size: 22px;
-  color: #34495e;
-  text-align: center;
 }
 
 #confessionList {
-  max-width: 600px;
-  margin: 0 auto 30px auto;
-  padding: 0;
   list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
 }
 
 #confessionList li {
-  background-color: #ffffff;
-  padding: 16px 20px;
+  background-color: white;
+  padding: 18px 20px;
   margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   font-size: 17px;
   line-height: 1.5;
   word-wrap: break-word;
@@ -45,33 +45,36 @@ textarea {
   width: 100%;
   max-width: 600px;
   margin: 0 auto 15px auto;
-  padding: 12px;
+  padding: 14px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #ccc;
   resize: vertical;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  background-color: #fff;
 }
 
 button {
   display: block;
   margin: 0 auto;
-  padding: 12px 24px;
+  padding: 12px 28px;
   font-size: 16px;
-  background-color: #4CAF50;
-  color: #fff;
+  background-color: #27ae60;
+  color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: background-color 0.2s ease-in-out, transform 0.1s;
 }
 
 button:hover {
-  background-color: #45a049;
+  background-color: #219653;
+  transform: translateY(-1px);
 }
 
 /* 📱 Mobile Responsive */
-@media (max-width: 600px) {
+@media screen and (max-width: 600px) {
   body {
     padding: 15px;
   }
@@ -85,13 +88,12 @@ button:hover {
   }
 
   #confessionList li {
-    font-size: 16px;
+    font-size: 15.5px;
     padding: 14px;
   }
 
   textarea {
     font-size: 15px;
-    padding: 10px;
   }
 
   button {
